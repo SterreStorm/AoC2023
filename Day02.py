@@ -1,11 +1,11 @@
 
-def parse_input(filename): #RegEx is not my strongest suit
+def parse_input(filename):  # RegEx is not my strongest suit
     games_list = []
     with open(filename) as file:
         for line in file:
-            game, reveals = line.strip("\n").split(":") # split game number and reveals
-            reveals = reveals[1:].split("; ") # split into reveals arrays
-            game, game_id = game.split(" ") #parse game number
+            game, reveals = line.strip("\n").split(": ")  # split game number and reveals
+            reveals = reveals.split("; ")  # split into reveals arrays
+            game, game_id = game.split(" ")  # parse game number
             reveals_list = []
             # maakt list aan reveal dicts:
             for i, reveal in enumerate(reveals):
@@ -17,6 +17,7 @@ def parse_input(filename): #RegEx is not my strongest suit
                 reveals_list.append(reveal_dict)
             games_list.append([int(game_id), reveals_list])
     return games_list
+
 
 # written for pt 01
 def check_game(game_list):
@@ -31,14 +32,17 @@ def check_game(game_list):
                     break
     return check
 
+
 # written vor pt. 02
 def get_green(subgame):
     retval = subgame.get('green')
     return retval if isinstance(retval, int) else 0
 
+
 def get_blue(subgame):
     retval = subgame.get('blue')
     return retval if isinstance(retval, int) else 0
+
 
 def get_red(subgame):
     retval = subgame.get('red')
@@ -46,15 +50,15 @@ def get_red(subgame):
 
 
 def find_power(game):
-     game.sort(key=get_blue, reverse=True)
-     highblue = game[0]['blue']
-     game.sort(key=get_green, reverse=True)
-     highgreen = game[0]['green']
-     game.sort(key=get_red, reverse=True)
-     highred = game[0]['red']
-     power = highblue * highred * highgreen
+    game.sort(key=get_blue, reverse=True)
+    highblue = game[0]['blue']
+    game.sort(key=get_green, reverse=True)
+    highgreen = game[0]['green']
+    game.sort(key=get_red, reverse=True)
+    highred = game[0]['red']
+    power = highblue * highred * highgreen
+    return power
 
-     return power
 
 def main(filename):
     idtotal = 0
