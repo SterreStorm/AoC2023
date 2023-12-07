@@ -1,4 +1,6 @@
+import time
 
+start_time = time.time_ns()
 def parse_input(filename):  # RegEx is not my strongest suit
     games_list = []
     with open(filename) as file:
@@ -73,3 +75,7 @@ def main(filename):
 
 
 main("input/day02.txt")
+
+
+print("day 02")
+print("--- %s ms ---" % ((time.time_ns() - start_time)/1000000))

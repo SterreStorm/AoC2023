@@ -1,4 +1,6 @@
+import time
 
+start_time = time.time_ns()
 def parse_input(filename):
     kaartjesbieb = {}
     with open(filename) as file:
@@ -54,3 +56,6 @@ def main(filename):
 
 
 main("input/day04.txt")
+
+print("day 04")
+print("--- %s ms ---" % ((time.time_ns() - start_time)/1000000))

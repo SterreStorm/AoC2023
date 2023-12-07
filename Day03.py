@@ -1,5 +1,6 @@
-import math
+import math, time
 
+start_time = time.time_ns()
 
 def form_grid(filename):
     grid = []
@@ -112,3 +113,6 @@ def main(filename):
 
 
 main("input/day03.txt")
+
+print("day 03")
+print("--- %s ms ---" % ((time.time_ns() - start_time)/1000000))

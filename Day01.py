@@ -1,3 +1,6 @@
+import time
+
+start_time = time.time_ns()
 
 vertaaltabel = {
     "one": "1",
@@ -32,3 +35,6 @@ def main(filename):
 
 
 main("input/day01.txt")
+
+print("day 01")
+print("--- %s ms ---" % ((time.time_ns() - start_time)/1000000))

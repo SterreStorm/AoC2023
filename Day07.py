@@ -1,4 +1,6 @@
+import time
 
+start_time = time.time_ns()
 def find_J(hand):
     return True if "J" in hand else False
 
@@ -64,3 +66,6 @@ def main(filename):
 
 
 main("input/Day07.txt")
+
+print("day 07")
+print("--- %s ms ---" % ((time.time_ns() - start_time)/1000000))
