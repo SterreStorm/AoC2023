@@ -1,5 +1,6 @@
 import math
 
+
 def parse_input(filename):
     lists = []
     combined = []
@@ -16,7 +17,8 @@ def parse_input(filename):
     lists = list(zip(lists[0], lists[1]))
     return lists, combined
 
-    # d = tx - x^2 -> x^2 - tx + d
+
+# d = tx - x^2 -> x^2 - tx + d
 def calculate_minimum_press(race):
     print(race)
     time_t = race[0]
@@ -33,6 +35,7 @@ def calculate_minimum_press(race):
     else:
         delta = 0
     return delta
+
 
 def main(filename):
     list_of_presstimes = []
