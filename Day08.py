@@ -1,4 +1,4 @@
-from math import gcd
+from math import gcd, lcm
 from time import time_ns
 
 
@@ -18,13 +18,12 @@ def parse_input(filename):
     with open(filename) as file:
         steps, nodes = file.read().split("\n\n")
         nodes = nodes.split('\n')
-        nodes.pop() #remove last enter
+        nodes.pop()   #  remove last enter
         for node in nodes:
             parent_name, left_right = node.split(" = ")
             left, right = left_right.strip("()").split(", ")
             parent = Node(parent_name, left, right)
             node_directory[parent_name] = parent
-
             if parent_name[2] == "A": list_of_a.append(parent)
     return node_directory, steps, list_of_a
 
@@ -37,10 +36,6 @@ def steps_till_z(starting_node, nodes, steps):
         working_node = nodes[working_node.right] if direction == "R" else nodes[working_node.left]
         i += 1
     return i
-
-
-def lcm(a, b):
-    return abs(a * b) // gcd(a, b)
 
 
 def find_least_common_multiple(numbers):
