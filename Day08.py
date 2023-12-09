@@ -1,4 +1,4 @@
-from math import gcd, lcm
+from math import lcm
 from time import time_ns
 
 
